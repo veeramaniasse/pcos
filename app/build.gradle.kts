@@ -10,8 +10,8 @@ android {
         applicationId = "com.simats.pcos"
         minSdk = 26
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "3.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,5 +58,5 @@ dependencies {
     implementation ("com.prolificinteractive:material-calendarview:1.4.3")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
-
+    implementation("com.google.android.play:app-update:2.1.0")
 }
