@@ -1,5 +1,6 @@
 package com.simats.pcos;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,17 +28,19 @@ public class PatientLogin extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonLogin;
     private TextView textViewForgotPassword;
+    private TextView createAccountTV;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_login);
 
-
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         textViewForgotPassword = findViewById(R.id.forgotPasswordText);
+        createAccountTV = findViewById(R.id.createAccountTV);
 
         buttonLogin.setOnClickListener(view -> {
             String username = editTextUsername.getText().toString().trim();
@@ -52,6 +55,10 @@ public class PatientLogin extends AppCompatActivity {
         textViewForgotPassword.setOnClickListener(view -> {
             startActivity(new Intent(PatientLogin.this, ForgotPassword.class));
 
+        });
+
+        createAccountTV.setOnClickListener(view -> {
+            startActivity(new Intent(PatientLogin.this, AddPatients.class));
         });
     }
 
