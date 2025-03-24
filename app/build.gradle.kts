@@ -10,8 +10,8 @@ android {
         applicationId = "com.simats.pcos"
         minSdk = 26
         targetSdk = 34
-        versionCode = 4
-        versionName = "4.1"
+        versionCode = 5
+        versionName = "5.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -55,6 +55,7 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.2")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
     implementation ("com.prolificinteractive:material-calendarview:1.4.3")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")

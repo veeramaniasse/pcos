@@ -2,6 +2,7 @@ package com.simats.pcos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +17,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class QuestionAndAnswers1 extends AppCompatActivity {
 
     private JSONArray questions;
@@ -28,6 +36,7 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
     private int mild = 0;
     private int moderate = 0;
     private int severe = 0;
+    private List<String> storeAnswers;
     private boolean isCheckboxClicked = false; // Track whether any checkbox is clicked
 
     @Override
@@ -55,6 +64,7 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
         checkBoxes[4] = findViewById(R.id.checkBox5);
         checkBoxes[5] = findViewById(R.id.checkBox6);
         checkBoxes[6] = findViewById(R.id.checkBox7);
+        storeAnswers = new ArrayList<>();
 
         nextButton.setVisibility(View.GONE); // Initially hide the next button
         setUpCheckboxListeners();
@@ -63,6 +73,13 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
         nextButton.setOnClickListener(view -> {
             if (currentQuestionIndex < questions.length() - 1) {
                 // Increment to the next question
+
+                for(int i=0;i<7;i++) {
+                    if(checkBoxes[i].isChecked()) {
+                        storeAnswers.add(optionTextViews[i].getText().toString());
+//                        Toast.makeText(this, optionTextViews[i].getText().toString(),Toast.LENGTH_LONG).show();
+                    }
+                }
                 currentQuestionIndex++;
                 resetCheckboxes();
                 try {
@@ -125,6 +142,7 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
                 checkBoxes[i].setVisibility(View.GONE);
             }
         }
+
         // Hide the next button if no checkbox is clicked
         if (!isCheckboxClicked) {
             nextButton.setVisibility(View.GONE);
@@ -166,9 +184,31 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
     }
 
     private void navigateToResultActivity() {
-        Intent intent = new Intent(QuestionAndAnswers1.this,Gifloader.class);
-        intent.putExtra("username", username);
-        startActivity(intent);
+        StoreAnswers ans = new StoreAnswers(username, storeAnswers);
+
+        RestClient.makeAPI().storeAnswer(ans).enqueue(new Callback<CommonResponse>() {
+            @Override
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
+                if(response.isSuccessful()) {
+                    if(response.body().isSuccess()) {
+                        Intent intent = new Intent(QuestionAndAnswers1.this, Gifloader.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        Toast.makeText(QuestionAndAnswers1.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(QuestionAndAnswers1.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(QuestionAndAnswers1.this, "Failed to send results", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
+                Toast.makeText(QuestionAndAnswers1.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void fetchQuestions() {
@@ -189,5 +229,15 @@ public class QuestionAndAnswers1 extends AppCompatActivity {
         });
 
         queue.add(jsonObjectRequest);
+    }
+
+    public static class StoreAnswers {
+        private String username;
+        private List<String> answers;
+
+        public StoreAnswers(String username, List<String> answers) {
+            this.username = username;
+            this.answers = answers;
+        }
     }
 }

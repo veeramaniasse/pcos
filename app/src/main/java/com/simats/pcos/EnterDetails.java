@@ -2,6 +2,7 @@ package com.simats.pcos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import android.text.TextWatcher;
 import android.text.Editable;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -139,6 +141,8 @@ public class EnterDetails extends AppCompatActivity {
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
+
+                    Log.e("Response", response.toString());
                     Toast.makeText(getApplicationContext(), "Data submitted successfully!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(EnterDetails.this, Welcome.class);
 
@@ -150,6 +154,7 @@ public class EnterDetails extends AppCompatActivity {
                 },
                 error -> Toast.makeText(getApplicationContext(), "Failed to submit data: " + error.toString(), Toast.LENGTH_LONG).show()
         ) {
+            @NonNull
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();

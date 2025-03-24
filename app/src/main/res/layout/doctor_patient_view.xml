@@ -153,5 +153,28 @@
         app:srcCompat="@drawable/baseline_delete_24"
         app:tint="@color/Another" />
 
+    <View
+        android:id="@+id/View6"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:clickable="true"
+        android:background="@drawable/border2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/View1" />
+
+    <TextView
+        android:id="@+id/patientAnswers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient Answers"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/View6"
+        app:layout_constraintEnd_toEndOf="@+id/View6"
+        app:layout_constraintStart_toStartOf="@+id/View6"
+        app:layout_constraintTop_toTopOf="@+id/View6" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -119,6 +119,13 @@ public class DoctorPatientView extends AppCompatActivity {
             intent.putExtra("patient_name", patientName);
             startActivity(intent);
         });
+
+        View View6 = findViewById(R.id.View6);
+        View6.setOnClickListener(view -> {
+            Intent intent = new Intent(DoctorPatientView.this, PatientAnswersActivity.class);
+            intent.putExtra("username", patientName);
+            startActivity(intent);
+        });
     }
 
 }

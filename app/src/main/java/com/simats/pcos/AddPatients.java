@@ -63,8 +63,8 @@ public class AddPatients extends AppCompatActivity {
                         if (jsonResponse.getBoolean("success")) {
                             Toast.makeText(this, "Patient Added Successfully", Toast.LENGTH_LONG).show();
                             // Navigate back to Doctor Homepage
-                            Intent intent = new Intent(AddPatients.this, DoctorHomepage.class);
-                            startActivity(intent);
+//                            Intent intent = new Intent(AddPatients.this, DoctorHomepage.class);
+//                            startActivity(intent);
                             finish(); // Ensures this activity is removed from the stack
                         } else {
                             Toast.makeText(this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
