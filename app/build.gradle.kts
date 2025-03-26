@@ -10,8 +10,8 @@ android {
         applicationId = "com.simats.pcos"
         minSdk = 26
         targetSdk = 34
-        versionCode = 5
-        versionName = "5.1"
+        versionCode = 6
+        versionName = "6.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,6 +30,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
 allprojects {
     repositories {
         google()
@@ -37,7 +38,6 @@ allprojects {
         maven("https://jitpack.io")
     }
 }
-
 
 dependencies {
 
