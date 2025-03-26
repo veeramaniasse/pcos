@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:openDrawer="start"
     tools:context=".PatientHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,8 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="5dp"
-            android:text="Hi, Aannie
-Start Your Journey!"
+            android:text="Hi, Aannie Start Your Journey!"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="normal"
@@ -66,11 +66,11 @@ Start Your Journey!"
         <ScrollView
             android:id="@+id/scrollView3"
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3">
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -89,13 +89,12 @@ Start Your Journey!"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
                 <View
                     android:id="@+id/view15"
-                    android:layout_width="322dp"
+                    android:layout_width="match_parent"
                     android:layout_height="148dp"
                     android:layout_marginTop="15dp"
-
+                    android:layout_marginHorizontal="40dp"
                     android:background="@drawable/curved_border"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -126,21 +125,22 @@ Start Your Journey!"
                     android:id="@+id/textView64"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp"
                     android:layout_marginEnd="15dp"
                     android:text="Meal Plan"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/view15"
                     app:layout_constraintEnd_toEndOf="@+id/view15"
                     app:layout_constraintTop_toTopOf="@+id/view15" />
 
                 <View
                     android:id="@+id/View6"
-                    android:layout_width="322dp"
+                    android:layout_width="match_parent"
                     android:layout_height="148dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/curved_border"
+                    android:layout_marginHorizontal="40dp"
                     android:clickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -171,22 +171,23 @@ Start Your Journey!"
                     android:id="@+id/textView65"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp"
                     android:layout_marginEnd="15dp"
                     android:text="Exercise"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/View6"
                     app:layout_constraintEnd_toEndOf="@+id/View6"
                     app:layout_constraintTop_toTopOf="@+id/View6" />
 
                 <View
                     android:id="@+id/viewCenter"
-                    android:layout_width="322dp"
+                    android:layout_width="match_parent"
                     android:layout_height="148dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/curved_border"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="40dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/View6" />
 
@@ -205,18 +206,18 @@ Start Your Journey!"
                     android:id="@+id/textViewCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="60dp"
                     android:text="Track Your Moments!!"
                     android:textColor="@color/black"
                     android:textSize="17sp"
+                    android:layout_marginEnd="10dp"
                     android:textStyle="normal"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewRight"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewCenter"
+                    app:layout_constraintEnd_toEndOf="@+id/viewCenter"
                     app:layout_constraintTop_toTopOf="@+id/viewCenter" />
 
                 <View
                     android:id="@+id/backgroundView"
-                    android:layout_width="359dp"
+                    android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_centerHorizontal="true"
                     android:background="@color/Transparent"
@@ -228,16 +229,14 @@ Start Your Journey!"
                     android:id="@+id/textView55"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp"
                     android:text="Strengthen your positive thoughts with gratitude"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/backgroundView"
                     app:layout_constraintEnd_toEndOf="@+id/backgroundView"
-                    app:layout_constraintHorizontal_bias="0.422"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/backgroundView"
-                    app:layout_constraintVertical_bias="0.045" />
+                     />
 
 
                 <View
@@ -263,16 +262,17 @@ Start Your Journey!"
                     app:layout_constraintEnd_toEndOf="@+id/firstView"
                     app:layout_constraintStart_toStartOf="@+id/firstView"
                     app:layout_constraintTop_toTopOf="@+id/firstView" />
-                <pl.droidsonroids.gif.GifImageView
+
+                 <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/gifViewMiddle"
                     android:layout_width="322dp"
                     android:layout_height="180dp"
                     android:background="@color/white"
                     android:scaleType="fitCenter"
                     android:src="@drawable/calender"
-                app:layout_constraintEnd_toEndOf="@+id/firstView"
-                app:layout_constraintStart_toStartOf="@+id/firstView"
-                app:layout_constraintTop_toTopOf="@+id/firstView" />
+                    app:layout_constraintEnd_toEndOf="@+id/firstView"
+                    app:layout_constraintStart_toStartOf="@+id/firstView"
+                    app:layout_constraintTop_toTopOf="@+id/firstView" />
 
                 <TextView
                     android:id="@+id/textViewMiddle"
@@ -284,19 +284,17 @@ Start Your Journey!"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="@+id/firstView"
                     app:layout_constraintEnd_toEndOf="@+id/imageViewMiddle"
-                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="@+id/firstView" />
-
 
                 <View
                     android:id="@+id/secondView"
-                    android:layout_width="362dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="40dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="15dp"
                     android:background="@color/Another"
                     android:clickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.454"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/firstView" />
 
@@ -305,12 +303,12 @@ Start Your Journey!"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
                     android:text="RECORD DAILY PROGRESS"
-                    android:layout_marginStart="80dp"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/secondView"
+                    app:layout_constraintBottom_toBottomOf="@+id/secondView"
                     app:layout_constraintStart_toStartOf="@+id/secondView"
                     app:layout_constraintTop_toTopOf="@+id/secondView" />
 
@@ -318,39 +316,28 @@ Start Your Journey!"
                     android:id="@+id/textViewClose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="10dp"
                     android:clickable="true"
                     android:src="@drawable/baseline_chevron_right_24"
                     android:background="@color/Another"
+                    app:layout_constraintBottom_toBottomOf="@+id/secondView"
+                    app:layout_constraintEnd_toEndOf="@+id/secondView"
                     app:layout_constraintStart_toEndOf="@+id/textViewBelow"
                     app:layout_constraintTop_toTopOf="@+id/secondView" />
 
                 <View
                     android:id="@+id/thirdView"
-                    android:layout_width="322dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="40dp"
                     android:layout_height="180dp"
                     android:layout_below="@+id/secondView"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/curved_border"
                     android:clickable="true"
-
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.508"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/secondView" />
 
-<!--                <pl.droidsonroids.gif.GifImageView-->
-<!--                    android:id="@+id/gifViewLeft2"-->
-<!--                    android:layout_width="200dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:src="@drawable/meditation"-->
-<!--                    android:layout_marginStart="12dp"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@+id/thirdView"-->
-<!--                    app:layout_constraintStart_toStartOf="@+id/thirdView"-->
-<!--                    app:layout_constraintTop_toTopOf="@+id/thirdView"-->
-<!--                    app:layout_constraintVertical_bias="0.475" />-->
                 <ImageView
                     android:id="@+id/gifViewLeft2"
                     android:layout_width="125dp"
@@ -362,24 +349,25 @@ Start Your Journey!"
                     app:layout_constraintTop_toTopOf="@+id/thirdView"
                     app:layout_constraintVertical_bias="0.475" />
 
-
                 <TextView
                     android:id="@+id/textViewRight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="76dp"
                     android:layout_marginEnd="20dp"
                     android:text="Meditation"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/thirdView"
                     app:layout_constraintEnd_toEndOf="@+id/thirdView"
                     app:layout_constraintTop_toTopOf="@+id/thirdView" />
+
                 <View
                     android:id="@+id/view9"
-                    android:layout_width="320dp"
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="40dp"
                     android:background="@drawable/curved_border"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -401,7 +389,7 @@ Start Your Journey!"
                     android:id="@+id/textView129"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="20dp"
                     android:text="Monthly Feedback"
                     android:textSize="17sp"
                     android:textColor="@color/black"
@@ -410,13 +398,9 @@ Start Your Journey!"
                     app:layout_constraintEnd_toEndOf="@+id/view9"
                     app:layout_constraintTop_toTopOf="@+id/view9" />
 
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         </ScrollView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -427,11 +411,5 @@ Start Your Journey!"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
-
-
-
-
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
