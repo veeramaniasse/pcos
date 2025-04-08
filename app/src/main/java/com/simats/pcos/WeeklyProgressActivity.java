@@ -47,10 +47,9 @@ public class WeeklyProgressActivity extends AppCompatActivity {
         adapter = new WeeklyProgressAdapter();
         recyclerView.setAdapter(adapter);
 
-// Add space between items (adjust the value as needed)
+        // Add space between items (adjust the value as needed)
         int spaceInPixels = getResources().getDimensionPixelSize(R.dimen.spacing);
         recyclerView.addItemDecoration(new SpaceItemDecoration(spaceInPixels));
-
 
         setupDatePicker(editTextDateStart);
         setupDatePicker(editTextDateEnd);

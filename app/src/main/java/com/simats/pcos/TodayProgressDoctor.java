@@ -40,7 +40,6 @@ public class TodayProgressDoctor extends AppCompatActivity {
         stepsEditText.setFocusable(false);
         nameEditText.setFocusable(false);
 
-        // Retrieve the patient name from intent
         String patientName = getIntent().getStringExtra("patient_name");
         if (patientName != null && !patientName.isEmpty()) {
             fetchTodayProgress(patientName);

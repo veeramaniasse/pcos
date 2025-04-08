@@ -66,13 +66,7 @@ public class TrackView extends AppCompatActivity {
         String username = getIntent().getStringExtra("username");
         fetchChartData(username);
         fetchDataFromServerSteps(username);
-        EdgeToEdge.enable(this);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         TextView textView71 = findViewById(R.id.textView71);
         textView71.setOnClickListener(v -> {
@@ -246,6 +240,7 @@ public class TrackView extends AppCompatActivity {
             @Override
             public void run() {
                 try {
+
                     if (jsonResponse.getBoolean("success")) {
                         JSONObject percentages = jsonResponse.getJSONObject("percentages");
                         int caloriesPercentage = percentages.getInt("calories_percentage");
@@ -306,6 +301,5 @@ public class TrackView extends AppCompatActivity {
         pieChart.animateY(1400, Easing.EaseInOutQuad);
         pieChart.invalidate();
     }
-
 
 }
