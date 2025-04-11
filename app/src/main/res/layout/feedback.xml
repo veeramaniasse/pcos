@@ -20,6 +20,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView130"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        android:indeterminateTint="@color/steps"
+        android:paddingTop="0dp" />
+
     <TextView
         android:id="@+id/textView131"
         android:layout_width="wrap_content"
@@ -31,7 +45,7 @@
         android:textSize="18sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView130" />
+        app:layout_constraintTop_toBottomOf="@+id/progress" />
 
     <EditText
         android:id="@+id/editTextText31"
@@ -45,7 +59,7 @@
         android:hint="Name"
         android:background="@drawable/curved_border"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView130" />
+        app:layout_constraintTop_toBottomOf="@+id/progress" />
 
     <!-- Meal Plan Spinner -->
     <TextView
@@ -210,4 +224,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

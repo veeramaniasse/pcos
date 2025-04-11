@@ -1,5 +1,6 @@
 package com.simats.pcos;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,13 @@ public class DoctorPatientView extends AppCompatActivity {
         ImageView imgDelete = findViewById(R.id.imageButton8);
         imgDelete.setOnClickListener(view -> deletePatient(patientName));
 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        View feedback = findViewById(R.id.View7);
+        feedback.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PatientMonthlyFeedbacListActivity.class);
+            intent.putExtra("patientName", patientName);
+            startActivity(intent);
+        });
         // Enable edge-to-edge
         EdgeToEdge.enable(this);
 

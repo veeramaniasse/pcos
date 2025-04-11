@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,6 +9,11 @@
     android:layout_height="match_parent"
     tools:context=".DoctorPatientView">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/imageView6"
@@ -176,5 +182,30 @@
         app:layout_constraintStart_toStartOf="@+id/View6"
         app:layout_constraintTop_toTopOf="@+id/View6" />
 
+    <View
+        android:id="@+id/View7"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:clickable="true"
+        android:background="@drawable/border2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/View6" />
+
+    <TextView
+        android:id="@+id/patientFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient Feedback"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/View7"
+        app:layout_constraintEnd_toEndOf="@+id/View7"
+        app:layout_constraintStart_toStartOf="@+id/View7"
+        app:layout_constraintTop_toTopOf="@+id/View7" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
