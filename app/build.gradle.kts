@@ -10,8 +10,8 @@ android {
         applicationId = "com.simats.pcos"
         minSdk = 26
         targetSdk = 34
-        versionCode = 6
-        versionName = "6.1"
+        versionCode = 7
+        versionName = "7.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
